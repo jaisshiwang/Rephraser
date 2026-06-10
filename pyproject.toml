@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcq-workflow"
+version = "0.1.0"
+description = "Backend-only workflow for rephrasing and generating grounded MCQ question banks"
+requires-python = ">=3.9"
+dependencies = [
+  "fastapi>=0.110",
+  "openai>=1.30",
+  "pydantic>=2.7",
+  "pypdf>=4.2",
+  "python-multipart>=0.0.9",
+  "uvicorn>=0.29",
+]
+
+[project.scripts]
+mcq-workflow = "mcq_workflow.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
