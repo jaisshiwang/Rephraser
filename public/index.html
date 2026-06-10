@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourseCraft — MCQ Rephraser</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark">C</span><span>CourseCraft<small>Assessment studio</small></span></a>
+    <nav><button class="nav-item active"><span>▦</span>Question bank</button><button class="nav-item"><span>◇</span>Course material</button><button class="nav-item" disabled><span>✦</span>Generate questions <b>Soon</b></button></nav>
+    <div class="course-label"><span>COURSES</span><button id="addCourse" title="Add course">+</button></div><div id="courseList" class="course-list"></div>
+    <div class="sidebar-footer"><span class="avatar">AS</span><span>Alex Smith<small>Curriculum editor</small></span><button>•••</button></div>
+  </aside>
+  <main>
+    <header><button class="mobile-menu">☰</button><div><p class="eyebrow" id="courseCode">BIO 101</p><h1 id="courseTitle">Biology fundamentals</h1></div><div class="header-actions"><button class="btn secondary" id="importBtn">↥ Import</button><button class="btn primary" id="newQuestion">＋ New question</button></div></header>
+    <section class="overview"><div><span>Total questions</span><strong id="totalCount">24</strong><small>Across all sections</small></div><div><span>Ready to use</span><strong id="readyCount">18</strong><small><i class="green"></i> Reviewed & approved</small></div><div><span>Needs review</span><strong id="reviewCount">6</strong><small><i class="orange"></i> Rephrased drafts</small></div><div class="progress-card"><div><span>Course coverage</span><b id="coverageText">75%</b></div><div class="progress"><i id="coverageBar"></i></div><small>3 of 4 sections covered</small></div></section>
+    <section class="workspace">
+      <div class="workspace-top"><div><h2>Question bank</h2><p>Refine and manage questions for this course.</p></div><div class="filters"><label class="search">⌕<input id="search" placeholder="Search questions..."></label><select id="sectionFilter"><option value="all">All sections</option></select></div></div>
+      <div class="layout"><div class="question-list" id="questionList"></div><article class="editor" id="editor"></article></div>
+    </section>
+  </main>
+  <input type="file" id="fileInput" accept="application/json" hidden>
+  <dialog id="modal"><form method="dialog"><div class="modal-head"><div><p class="eyebrow">ADD TO QUESTION BANK</p><h2>New question</h2></div><button value="cancel" class="icon-btn">×</button></div><label>Section<input id="newSection" placeholder="e.g. Cell biology" required></label><label>Question stem<textarea id="newStem" placeholder="Enter the question..." required></textarea></label><label>Options (mark one correct)<div id="newOptions"></div></label><div class="modal-actions"><button value="cancel" class="btn secondary">Cancel</button><button type="button" class="btn primary" id="saveQuestion">Add question</button></div></form></dialog>
+  <div id="toast" class="toast"></div><script src="app.js"></script>
+</body></html>

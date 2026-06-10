@@ -1,0 +1,13 @@
+{
+  "name": "coursecraft-rephraser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multi-course MCQ rephrasing workspace",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check public/app.js"
+  },
+  "engines": { "node": ">=20" }
+}
