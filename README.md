@@ -108,6 +108,24 @@ mcq-workflow generate \
   --out generated.json
 ```
 
+Import compatible JSON from an external question-bank downloader:
+
+```bash
+mcq-workflow import-examtopics \
+  --input examtopics_output.json \
+  --course-id google-devops \
+  --course-title "Google DevOps Practice" \
+  --limit 10 \
+  --out bank.json
+```
+
+The importer accepts JSON records with fields such as `title`, `header`,
+`content`, `questions`, `answer`, `timestamp`, and `question_link`, plus cached
+`pageProps.questions` records with `question_text`, `choices`, `answer`, and
+`topic`. It imports only single-answer MCQs that can be mapped to this workflow's
+schema. Incompatible records are skipped by default and counted in output
+metadata; pass `--strict` to fail on the first incompatible record.
+
 ## Validation Guarantees
 
 - Existing correct-answer designation is never taken from the LLM during
@@ -117,4 +135,3 @@ mcq-workflow generate \
 - Generated questions must use requested sections, have unique IDs, and contain
   exactly one correct option.
 - Invalid LLM output fails the request instead of silently producing a bad bank.
-
