@@ -16,8 +16,6 @@ Use only course material and question-bank data that you are permitted to use.
 From the repo root:
 
 ```bash
-cd /Users/sj/Documents/Rephraser
-
 python3 -m venv .venv
 source .venv/bin/activate
 
